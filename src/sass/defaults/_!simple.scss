@@ -315,7 +315,7 @@ svg {
     display: inline-block;
     line-height: 1;
 	&:hover {
-		border-bottom: none;
+		border-bottom-color: transparent;
 	}
 }
 

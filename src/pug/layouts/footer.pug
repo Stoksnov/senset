@@ -3,22 +3,23 @@
         +e.top.flex._vertical
             +e.A.logo.logo(href='/')
                 img(src="/app/img/logo-w.svg" alt="Логотип")
-            +e.A.phone.text-xl(href="tel:8 (996) 925-98-97") 8 (996) 925-98-97
-        +e.middle.flex._justify
-            +e.left
-                +e.address.h3 г. Самара, ул. Стара-загора, д. 79
-                +e.A.email.flex_inline._vertical(href="mailto:help@cdtmail.ru") 
-                    //- +icon('mail')
+            +e.top-right
+                +e.A.phone.h3(href="tel:8 (996) 925-98-97") 8 (996) 925-98-97
+                +e.A.email(href="mailto:help@cdtmail.ru") 
+                    +icon('mail')
                     .text.link info@сенсет.рф
+        +e.middle.flex._justify._vertical
+            +e.left
+                +e.address.h3 г. Самара, #[br]ул. Стара-загора, д. 79
             +e.right
-                +e.UL.ul.flex
+                +e.UL.ul.flex.h4
                     +e.LI.li
                         +e.A.li-link(href="#") Сведения об организации
                     +e.LI.li
                         +e.A.li-link(href="#") Типы датчиков
                     +e.LI.li
                         +e.A.li-link(href="#") Контакты
-        +e.bottom ©2020  Сенсерные сети
+    +e.bottom ©2020  Сенсерные сети
 
 
 //- +b.FOOTER.footer(data-scroll-section)
