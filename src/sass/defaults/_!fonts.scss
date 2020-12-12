@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Ubuntu";
+    src: url("/app/fonts/Ubuntu-Regular.woff") format("woff"), 
+    url("/app/fonts/Ubuntu-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("/app/fonts/Roboto-Bold.woff") format("woff"), 
+    url("/app/fonts/Roboto-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter";
+    src: url("/app/fonts/Inter-Regular.woff") format("woff"), 
+    url("/app/fonts/Inter-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("/app/fonts/Montserrat-Regular.woff") format("woff"), 
+    url("/app/fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

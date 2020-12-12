@@ -1,0 +1,11 @@
+mixin flat-button(link = true)
+	if (link)
+		+e.A.flat-button.middle.flat-button__(href='#')&attributes(attributes)
+			+e.SPAN.text
+				if block
+					block
+	else
+		+e.BUTTON.flat-button.middle.flat-button__()&attributes(attributes)
+			+e.SPAN.text
+				if block
+					block

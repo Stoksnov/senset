@@ -1,0 +1,7 @@
+@mixin line-break($quantity-line, $max-h) {
+    overflow: hidden;
+    max-height: $max-h;
+    display: -webkit-box;
+    -webkit-line-clamp: $quantity-line;
+    -webkit-box-orient: vertical;
+}

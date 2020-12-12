@@ -1,0 +1,7 @@
+mixin checkbox(value, name, type="checkbox", checked = false)
+	+e.LABEL.checkbox.checkbox__()&attributes(attributes)
+		+e.INPUT.input(checked=checked data-rule-required="true" value=value name=name type=type ) 
+		+e.SPAN.text.middle 
+			+e.arrow
+				+icon('roundCheck')
+			| !{value}

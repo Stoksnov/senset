@@ -1,0 +1,192 @@
+.form {
+    width: 74rem;
+    &__input-wrap {
+        position: relative;
+        width: 100%;
+        &.invalid, &.valid {
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 2.4rem;
+                background: center/cover no-repeat;
+            }
+        }
+        &.invalid {
+            .input {
+                background: rgba($red, .07);
+                border: 1px solid $red;
+            }
+            &:after {
+                width: 2.7rem;
+                height: 2.7rem;
+                background-image: url("/img/cross.svg");
+                transform: translateY( -80% ) rotate(45deg);
+            }
+        }
+        &.valid {
+            .input {
+                background: rgba($green, .07);
+                border: 1px solid $green;
+            }
+            &:after {
+                width: 2.3rem;
+                height: 2.1rem;
+                background-image: url("/img/check.svg");
+                transform: translateY( -90% );
+            }
+        }
+    }
+    &__input, &__textarea {
+        background: transparent;
+        width: 100%;
+        height: 7.5rem;
+        padding: 0 5rem;
+        border: 1px solid $grey;
+        border-radius: 1.8rem;
+        margin-bottom: 2rem;
+        font-size: 1.7rem;
+        line-height: 3rem;
+        letter-spacing: -0.02em;
+        transition: .3s;
+        @include placeholder {
+            color: $black;
+        }
+        &:focus {
+            border: 1px solid $grey;
+        }
+    }
+    &__group {
+        display: flex;
+        justify-content: space-between;
+        .input-wrap:not(:last-child) {
+            margin-right: 2rem;
+        }
+    }
+    &__textarea {
+        padding-top: 2.2rem;
+        margin-bottom: 5rem;
+        height: 20rem;
+        resize: none;
+        @include placeholder {
+            color: $blackLight;
+        }
+    }
+    &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        &-checkbox {
+        }
+        .text {
+            margin-left: 2.4rem;
+        }
+        .icon {
+            &-inner {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // background: $purple;
+                width: 4rem;
+                height: 4rem;
+                border-radius: 1.2rem;
+            }
+            width: 1.8rem;
+            opacity: 0;
+            fill: $white;
+            transition: .07s;
+        }
+    }
+    &__bottom {
+        justify-content: space-between;
+    }
+    .input:checked + .icon-inner {
+        .icon {
+            opacity: 1;
+        }
+    }
+    @include max-screen($small_desktop) {
+        width: 64rem;
+        &__bottom {
+            justify-content: center;
+            .form__group {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    @include max-screen($large_tablet) {
+        &__bottom {
+            justify-content: space-between;
+            .form__group {
+                margin-bottom: 0;
+            }
+        }
+    }
+    @include max-screen($small_tablet) {
+        &__input-wrap {
+            margin-bottom: 2.4rem;
+            &.invalid, &.valid {
+                &:after {
+                }
+            }
+            &.invalid {
+                .input {
+                }
+                &:after {
+                    width: 2.2rem;
+                    height: 2.2rem;
+                    transform: translateY(-50%) rotate(45deg);
+                }
+            }
+            &.valid {
+                .input {
+                }
+                &:after {
+                    width: 1.8rem;
+                    height: 1.6rem;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        &__input, &__textarea {
+            padding-left: 2rem;
+            font-size: 1.3rem;
+            line-height: 1.9rem;
+            height: 6rem;
+            margin: 0;
+        }
+        &__group {
+            flex-wrap: wrap;
+            .input-wrap:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+        &__textarea {
+        }
+        &__label {
+            &-checkbox {
+            }
+            .text {
+                margin-left: 1.4rem;
+            }
+            .icon {
+                &-inner {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    border-radius: .7rem;
+                }
+                width: 1.3rem;
+            }
+        }
+        .input:checked + .form__label-checkbox {
+            .icon {
+            }
+        }
+        &__bottom {
+            justify-content: center;
+        }
+    }
+}

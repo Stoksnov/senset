@@ -1,0 +1,12 @@
+mixin price(name, placeholder, value)
+	+e.price.price__
+		+e.INPUT.field.js-num(type="text" data-rule-required="true" name=name value=value placeholder=placeholder)
+		+e.currency
+			+e.INPUT.hidden(type="hidden" name=`${name}_currency` value="₽" data-rule-required="true")
+		+e.list
+			+e.list-parent
+				+e.list-item.h4.is-active ₽
+				+e.list-item.h4 $
+				+e.list-item.h4 €
+			+e.list-arrow
+				+icon('arrowDown')

@@ -1,0 +1,195 @@
+.content p,
+.p,
+.content li,
+.li {
+	font-size: 1.7rem;
+	line-height: 3rem;
+	letter-spacing: -0.02em;
+}
+
+.content ul,
+.content ol {
+}
+
+.content b,
+.b {
+	font-weight: bold;
+}
+
+.content strong,
+.strong {
+	font-weight: 500;
+}
+
+.content a,
+.a {
+}
+
+.h1,
+.content h1,
+.h2,
+.content h2,
+.h3,
+.content h3,
+.h4,
+.content h4,
+.h5,
+.content h5,
+.h6,
+.content h6 {
+	font-weight: inherit;
+}
+
+.h1,
+.content h1 {
+    font-size: 9.2rem;
+    line-height: 8.2rem;
+	font-weight: 700;
+}
+
+.h2,
+.content h2 {
+    font-size: 5.4rem;
+    line-height: 6.4rem;
+}
+
+.h3,
+.content h3 {
+	font-size: 3.1rem;
+	line-height: 4.4rem;
+}
+
+.h4,
+.content h4 {
+	font-size: 2.7rem;
+	line-height: 3.7rem;
+}
+
+.h5,
+.content h5 {
+	font-size: 1.7rem;
+	line-height: 3rem;
+}
+
+.h6,
+.content h6 {
+	font-size: 1.3rem;
+	line-height: 1.9rem;
+}
+
+.text {
+	&-btn {
+		font: 700 1.7rem/1.9rem "Roboto";
+	}
+	&-l {
+		font-size: 4rem;
+		line-height: 5.1rem;
+	}
+	&-m { 
+		font-size: 2.4rem;
+	}
+}
+
+.content {
+	p {
+	}
+
+	ul,
+	ol {
+	}
+
+	// ol {
+	// 	counter-reset: ol;
+	// 	li {
+	// 		display: block;
+	// 		padding-left: 3rem;
+	// 		position: relative;
+	// 		&:before {
+	// 			counter-increment: ol; /* Инкрементирует счетчик*/
+	// 			content: counter(ol) ".";
+	// 			display: block;
+	// 			position: absolute;
+	// 			left: 0;
+	// 			top: 0;
+	// 		}
+	// 	}
+	// }
+
+	// ul {
+	// 	li {
+	// 		display: block;
+	// 		padding-left: 3rem;
+	// 		position: relative;
+	// 		&:before {
+	// 			content: "";
+	// 			display: block;
+	// 			position: absolute;
+	// 			left: 0;
+	// 			top: 0.8rem;
+	// 			width: 0.7rem;
+	// 			height: 0.7rem;
+	// 			border-radius: 50%;
+	// 		}
+	// 	}
+	// }
+}
+
+@include max-screen($large_tablet) {
+	.content p,
+	.p,
+	.content li,
+	.li {
+		font-size: 1.3rem;
+		line-height: 1.9rem;
+	}
+	
+	.h1,
+	.content h1 {
+        font-size: 3.1rem;
+        line-height: 4.2rem;
+        letter-spacing: -.1rem;
+	}
+	.h2,
+	.content h2 {
+        font-size: 2.7rem;
+        line-height: 3.7rem;
+        letter-spacing: -.1rem;
+	}
+
+	.h3,
+	.content h3 {
+		font-size: 2.2rem;
+		line-height: 2.8rem;
+	}
+
+	.h4,
+	.content h4 {
+		font-size: 2.2rem;
+		line-height: 2.8rem;
+	}
+
+	.h5,
+	.content h5 {
+		font-size: 1.3rem;
+		line-height: 1.9rem;
+	}
+
+	.h6,
+	.content h6 {
+		font-size: 1.3rem;
+		line-height: 1.9rem;
+	}
+	
+	.text {
+		&-btn {
+			font-size: 1.3rem;
+		}
+	}
+}
+
+@include max-screen($large_mobile) {
+	.h1,
+	.content h1 {
+        letter-spacing: -.2rem;
+	}	
+}

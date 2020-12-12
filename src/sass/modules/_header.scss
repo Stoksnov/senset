@@ -1,0 +1,117 @@
+.header {
+    &__top {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    &__logo {
+        width: 25rem;
+        margin-right: 10rem;
+    }
+    &__phone {
+        color: $red;
+        font-weight: 600;
+    }
+    &__connection {
+        text-align: center;
+        margin-right: 12rem;
+    }
+    &__bottom {
+        background-color: $dark;
+        color: $white;
+        padding: 2rem 10rem;
+    }
+    &__ul {
+    }
+    &__li {
+        font-size: 2.4rem;
+        &:not(:last-child) {
+            margin-right: 5rem;
+        }
+    }
+    // .ham {
+    //     display: none;
+    //     &__item {
+    //         background: $black;
+    //         width: 2.6rem;
+    //         height: .13rem;
+    //         &:not(:last-child) {
+    //             margin-bottom: .5rem;
+    //         }
+    //     }
+    // }
+    // .mobile-menu {
+    //     position: fixed;
+    //     left: 0;
+    //     padding: 3.5rem 15px;
+    //     overflow: auto;
+    //     width: 100%;
+    //     height: calc(100% - 3.2rem);
+    //     z-index: 20;
+    //     opacity: 0;
+    //     background: #fff;
+    //     transition: .4s;
+    //     visibility: hidden;
+    //     &__li {
+    //         margin-bottom: 1.4rem;
+    //         &.h2 {
+    //             margin-bottom: 2.4rem;
+    //             &:last-child {
+    //                 margin-bottom: 3.4rem;
+    //             }
+    //         }
+    //     }
+    //     &__nav {
+    //         padding-bottom: 20px;
+    //         border-bottom: 1px solid $grey;
+    //     }
+    //     &__contacts {
+    //         padding: 3rem 0 4rem;
+    //         border-bottom: 1px solid $grey;
+    //         & > * {
+    //             margin-bottom: 1.7rem;
+    //         }
+    //         & > :last-child {
+
+    //         }
+    //     }
+    //     &__address {
+    //         margin-bottom: 2.5rem;
+    //     }
+    //     &__bottom {
+    //         padding: 3.4rem 0 4.5rem;
+    //         opacity: 0.55;
+    //     }
+    // }
+    @media screen and (max-width: $large_tablet){
+        &__wrap {
+            z-index: 20;
+        }
+        &__inner {
+            padding-top: 1.7rem;
+            padding-bottom: 1.7rem;
+        }
+        &__logo {
+            width: 10.4rem;
+            margin-right: 0;
+        }
+        &__switch, &__sections {
+            display: none;
+        }
+        &__log-in {
+            margin-right: 4.1rem;
+            &-icon {
+                width: 1.4rem;
+                height: 1.4rem;
+            }
+        }
+        .ham {
+            display: block;
+        }
+        .mobile-menu {
+            &.open {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

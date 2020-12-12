@@ -1,0 +1,12 @@
+.btn {
+	display: flex;
+	align-items: center;
+    justify-content: center;
+    border-radius: .8rem;
+    cursor: pointer;
+    &_main {
+        color: $white;
+        background: $red;
+        padding: 1rem 3.5rem;
+    }
+}

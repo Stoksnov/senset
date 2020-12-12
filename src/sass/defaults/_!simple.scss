@@ -1,0 +1,342 @@
+* {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	box-sizing: border-box;
+}
+
+li {
+	list-style: none;
+}
+
+button {
+	border: none;
+}
+
+[type="checkbox"] {
+	display: none;
+}
+
+.wrap {
+	padding: 0 10rem;
+	max-width: 1920px;
+	z-index: 15;
+	margin: auto;
+	position: relative;
+
+	// @include max-screen($large_desktop) {
+	// 	max-width: 1200px;
+	// }
+
+	@include max-screen($large_tablet) {
+		padding: 0 15px;
+	}
+
+	// @include max-screen($large_mobile) {
+	// 	padding: 0 10px;
+	// }
+}
+
+html {
+	// font-size: 62.5%; // 1rem = 10px
+	// font-size: 0.52vw; // 1rem = 10px
+
+	font-size: 100vw / (1920/10);
+
+	@include min-screen(1921px) {
+		font-size: 62.5%;
+	}
+
+	@include max-screen($small_desktop) {
+		font-size: 0.59vw;
+	}
+
+	@include max-screen($large_tablet) {
+	// font-size: 100vw / (1920/10);
+		font-size: 42.5%;
+	}
+
+	@include max-screen($large_mobile) {
+		font-size: 62.5%;
+	}
+}
+
+body {
+	position: relative;
+	font-family: "Ubuntu", sans-serif;
+	color: $black;
+	font-size: 1.7rem;
+	line-height: 3rem;
+	letter-spacing: -0.02em;
+
+	&.js-lock {
+		// overflow-x: hidden;
+		// overflow-y: scroll;
+		overflow: hidden;
+	}
+
+	&:not(.is-document-load) {
+		.main__bg-image:not(.is-active) {
+			visibility: hidden;
+		}
+	}
+	@include max-screen($large_tablet) {
+		font-size: 1.3rem;
+		line-height: 1.9rem;
+	}
+}
+
+input,
+textarea,
+button {
+	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	color: inherit;
+	font-family: inherit;
+	border: none;
+	width: 100%;
+}
+
+main {
+	display: block;
+	overflow: hidden;
+	min-height: 100vh;
+}
+
+a {
+	color: inherit;
+	text-decoration-skip-ink: none;
+	text-decoration: none;
+}
+
+.inline {
+	font-size: 0;
+
+	& > * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.icon {
+	width: 100%;
+}
+
+.clear {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	&__left {
+		float: left;
+	}
+	&__right {
+		float: right;
+	}
+}
+
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+
+	&_nowrap {
+		flex-wrap: nowrap;
+	}
+
+	&_center {
+		justify-content: center;
+	}
+
+	&_inline {
+		display: inline-flex;
+	}
+
+	&_justify {
+		justify-content: space-between;
+	}
+
+	&_left {
+		justify-content: flex-start;
+	}
+
+	&_right {
+		justify-content: flex-end;
+	}
+
+	&_start {
+		align-items: flex-start;
+	}
+	&_bottom {
+		align-items: flex-end;
+	}
+
+	&_vertical {
+		align-items: center;
+	}
+
+	&_column {
+		flex-direction: column;
+	}
+}
+
+.css-text-left {
+	text-align: left;
+}
+
+.css-text-center {
+	text-align: center;
+}
+
+.css-text-right {
+	text-align: right;
+}
+
+.row {
+	display: table;
+	width: 100%;
+
+	&_fixed {
+		table-layout: fixed;
+	}
+
+	& > * {
+		display: table-cell;
+		vertical-align: top;
+	}
+}
+
+.fit-by-content {
+	white-space: nowrap;
+	width: 1%;
+}
+
+img,
+svg {
+	vertical-align: top;
+	max-width: 100%;
+}
+
+.object-fit {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.css-scrollbar {
+	overflow-y: auto;
+	/* width */
+	&::-webkit-scrollbar {
+		width: 3px;
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		background: rgba(#c4c4c4, 0.4);
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: gray;
+	}
+
+	/* Handle on hover */
+	// &::-webkit-scrollbar-thumb:hover {
+	// 	background: #555;
+	// }
+}
+
+.js-gallery-background {
+	// visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	will-change: opacity;
+
+	&.is-visible {
+		z-index: 3;
+	}
+
+	&.is-next {
+		z-index: 2;
+	}
+
+	&.is-done {
+		// filter: blur(10px);
+		opacity: 0;
+		transition: ease 2s;
+	}
+
+	// @include min-screen($large_tablet + 1) {
+	&.is-active {
+		// visibility: visible;
+
+		img {
+			transform-origin: 100% 100%;
+			animation: scaleUp 10s linear 1 forwards;
+		}
+	}
+	// }
+}
+
+.css-hide-mobile {
+	@include max-screen($large_mobile) {
+		display: none !important;
+	}
+}
+
+.css-show-mobile {
+	display: none !important;
+	@include max-screen($large_mobile) {
+		display: block !important;
+	}
+}
+
+.owl-counter {
+	display: none;
+}
+
+.nowrap {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.link {
+	// color: $purple;
+	border-bottom: 1px solid;
+    display: inline-block;
+    line-height: 1;
+	&:hover {
+		border-bottom: none;
+	}
+}
+
+.owl {
+	&-dot {
+		width: 0.7rem;
+		height: 0.7rem;
+		// background: $purple;
+		margin-right: 0.9rem;
+		border-radius: 100%;
+		opacity: 0.22;
+		&.active {
+			opacity: 1;
+		}
+	}
+	&-dots {
+		text-align: center;
+	}
+}
+
+
+.marker {
+    // color: $purple;
+}
