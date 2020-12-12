@@ -31,7 +31,12 @@
         }
     }
     &__bottom {
+        display: flex;
+        align-items: center;
         background: #1e1e1e;
         padding: 10px 10rem;
+        .link {
+            margin-left: auto;
+        }
     }
 }
