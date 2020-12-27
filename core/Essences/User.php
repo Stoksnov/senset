@@ -9,24 +9,26 @@
 
     final class User
     {
+        // private $birthday;
         private $auth;
         private $id;
-        private $roleId;
-        private $role;
-        private $birthday;
         private $name;
+        private $surname;
+        private $patronymic;
         private $email;
-        private $tel;
+        private $phone;
         private $password;
         private $token;
-        private $subscribes;
-        private $avatar;
+        private $personal_account;
+        private $type_device;
+        private $number_device;
+        private $address;
+
         private static $instance = null;
 
         private function __construct()
         {
             $this->auth = false;
-            $this->subscribes = null;
 
             session_start();
 
@@ -36,7 +38,7 @@
             }
             elseif(!empty($_COOKIE['USER']))
             {
-                $cookieId = \R::getCell('SELECT ID FROM zaselite_users WHERE token = ?', [$_COOKIE['USER']]);
+                $cookieId = \R::getCell('SELECT id FROM users WHERE token = ?', [$_COOKIE['USER']]);
 
                 if($cookieId != 0)
                 {
@@ -47,21 +49,23 @@
 
             if($this->auth)
             {
-                $userDB = \R::findOne('zaselite_users', 'ID = ?', [$_SESSION['logged_user']]);
+                $userDB = \R::findOne('users', 'id = ?', [$_SESSION['logged_user']]);
 
                 if($userDB)
                 {
-                    $this->id = $userDB->ID;
-                    $this->roleId = $userDB->roleId;
-                    $this->role = \R::getRow('SELECT * FROM zaselite_roles WHERE ID = ?', [$this->roleId]);
-                    $this->birthday = $userDB->birthday;
-                    $this->name = $userDB->name;
-                    $this->email = $userDB->email;
-                    $this->tel = $userDB->tel;
-                    $this->password = $userDB->password;
-                    $this->token = $userDB->token;
-                    $this->subscribes = Subscribe::getInstanceActive($this->id);
-                    $this->avatar = $userDB->avatar;
+                    // $this->birthday = $userDB->birthday;
+                    $this->$id = $userDB->$id;
+                    $this->$name = $userDB->$name;
+                    $this->$surname = $userDB->$surname;
+                    $this->$patronymic = $userDB->$patronymic;
+                    $this->$email = $userDB->$email;
+                    $this->$phone = $userDB->$phone;
+                    $this->$password = $userDB->$password;
+                    $this->$token = $userDB->$token;
+                    $this->$personal_account = $userDB->$personal_account;
+                    $this->$type_device = $userDB->$type_device;
+                    $this->$number_device = $userDB->$number_device;
+                    $this->$address = $userDB->$address;
                 }
                 else
                 {
@@ -80,35 +84,11 @@
             return self::$instance;
         }
 
-        public function getSubscribes(): ?array
-        {
-            return $this->subscribes;
-        }
+        // public function getBirthday(): string
+        // {
+        //     return $this->birthday;
+        // }
 
-        public function getAvatar(): ?string
-        {
-            return $this->avatar;
-        }
-
-        public function getStoriesPay(): array
-        {
-            return Subscribe::getInstanceStories($this->id);
-        }
-
-        public function getBirthday(): string
-        {
-            return $this->birthday;
-        }
-
-        public function getRoleId(): string
-        {
-            return $this->roleId;
-        }
-
-        public function getRole(): array
-        {
-            return $this->role;
-        }
 
         public function getId(): int
         {
@@ -120,14 +100,19 @@
             return $this->auth;
         }
 
-        public function getFullName(): ?string
+        public function getName(): ?string
         {
             return $this->name;
         }
 
-        public function getFirstName(): string
+        public function getSurname(): ?string
         {
-            return explode(' ', $this->name)[0];
+            return $this->surname;
+        }
+
+        public function getPatronymic(): ?string
+        {
+            return $this->patronymic;
         }
 
         public function getEmail(): ?string
@@ -137,7 +122,7 @@
 
         public function getPhone(): string
         {
-            return $this->tel;
+            return $this->phone;
         }
 
         public function logout(): void
@@ -154,13 +139,13 @@
 
         private static function entrance(int $id): void
         {
-            $userDB = \R::load('zaselite_users', $id);
+            $userDB = \R::load('users', $id);
 
-            $userDB->ID = $id;
+            $userDB->id = $id;
 
             $_SESSION['logged_user'] = $id;
 
-            $token = password_hash($userDB->role . $id . $userDB->password . ($id + 1), PASSWORD_DEFAULT);
+            $token = password_hash($id . $userDB->password . ($id + 1), PASSWORD_DEFAULT);
 
             $userDB->token = $token;
 
@@ -177,7 +162,7 @@
 
         public static function login(string $phone, string $password): void
         {
-            $userDB = \R::getRow('SELECT * FROM zaselite_users WHERE tel = ?', [$phone]);
+            $userDB = \R::getRow('SELECT * FROM users WHERE phone = ?', [$phone]);
 
             if(empty($userDB))
             {
@@ -195,12 +180,12 @@
                 throw new ExceptionValidation($error);
             }
 
-            self::entrance($userDB['ID']);
+            self::entrance($userDB['id']);
         }
 
         public static function updatePassword(string $phone, string $password): void
         {
-            $userDB = \R::getRow('SELECT * FROM zaselite_users WHERE phone = ?', [$phone]);
+            $userDB = \R::getRow('SELECT * FROM users WHERE phone = ?', [$phone]);
 
             if(empty($userDB))
             {
@@ -220,7 +205,7 @@
 
             $userDB['password'] = password_hash($password, PASSWORD_DEFAULT);
 
-            $id = \R::store(\R::convertToBean('zaselite_users', $userDB));
+            $id = \R::store(\R::convertToBean('users', $userDB));
 
             if($id == 0)
             {
@@ -230,7 +215,7 @@
 
         public function updatePasswordSession(string $password, string $passwordOld): void
         {
-            $userDB = \R::getRow('SELECT * FROM zaselite_users WHERE email = ?', [$this->email]);
+            $userDB = \R::getRow('SELECT * FROM users WHERE email = ?', [$this->email]);
 
             if(!password_verify($passwordOld, $userDB['password']))
             {
@@ -250,7 +235,7 @@
 
             $userDB['password'] = password_hash($password, PASSWORD_DEFAULT);
 
-            $id = \R::store(\R::convertToBean('zaselite_users', $userDB));
+            $id = \R::store(\R::convertToBean('users', $userDB));
 
             if($id == 0)
             {
@@ -262,10 +247,9 @@
         {
             self::relevantUser($form['phone']);
 
-            $userDB = \R::xdispense('zaselite_users');
+            $userDB = \R::xdispense('users');
 
-            $userDB->roleId = $form['roleId'];
-            $userDB->tel = $form['phone'];
+            $userDB->phone = $form['phone'];
             $userDB->password = password_hash($form['password'], PASSWORD_DEFAULT);
             $userDB->token = '';
 
@@ -279,9 +263,9 @@
             self::entrance($id);
         }
 
-        private static function relevantUser(string $tel): void
+        private static function relevantUser(string $phone): void
         {
-            if(\R::count('zaselite_users', 'tel = ?', [$tel]) > 0)
+            if(\R::count('users', 'phone = ?', [$phone]) > 0)
             {
                 $error = json_encode(['phone' => 'Пользователь с таким телефоном уже существует'],
                     JSON_UNESCAPED_UNICODE);
@@ -290,9 +274,9 @@
             }
         }
 
-        private function relevantUserSession(string $tel, string $email): void
+        private function relevantUserSession(string $phone, string $email): void
         {
-            if(\R::count('zaselite_users', 'tel = ? AND ID != ?', [$tel, $this->id]) > 0)
+            if(\R::count('users', 'phone = ? AND id != ?', [$phone, $this->id]) > 0)
             {
                 $error = json_encode(['phone' => 'Пользователь с таким телефоном уже существует'],
                     JSON_UNESCAPED_UNICODE);
@@ -300,7 +284,7 @@
                 throw new ExceptionValidation($error);
             }
 
-            if(\R::count('zaselite_users', 'email = ? AND ID != ?', [$email, $this->id]) > 0)
+            if(\R::count('users', 'email = ? AND id != ?', [$email, $this->id]) > 0)
             {
                 $error = json_encode(['email' => 'Пользователь с таким Email уже существует'],
                     JSON_UNESCAPED_UNICODE);
@@ -313,34 +297,42 @@
         {
             $this->relevantUserSession($form['phone'], $form['email']);
 
-            $this->name = $form['name'];
-            $this->email = $form['email'];
-            $this->tel = $form['phone'];
-            $this->birthday = $form['birthday'];
-            $this->avatar = $form['avatar'];
+            // $this->birthday = $form['birthday'];
+            $this->$name = $form['name'];
+            $this->$surname = $form['surname'];
+            $this->$patronymic = $form['patronymic'];
+            $this->$email = $form['email'];
+            $this->$phone = $form['phone'];
+            $this->$personal_account = $form['personal_account'];
+            $this->$type_device = $form['type_device'];
+            $this->$number_device = $form['number_device'];
+            $this->$address = $form['address'];
 
             $this->updateDB();
         }
 
         private function updateDB(): void
         {
-            $userDB = \R::load('zaselite_users', $this->id);
+            $userDB = \R::load('users', $this->id);
 
             if(empty($userDB))
             {
-                throw new ExceptionValidation("Неверный параметр ID {$this->id}");
+                throw new ExceptionValidation("Неверный параметр id {$this->id}");
             }
 
-            $userDB->ID = $this->id;
-            $userDB->name = $this->name;
-            $userDB->email = $this->email;
-            $userDB->tel = $this->tel;
-            $userDB->password = $this->password;
-            $userDB->token = $this->token;
-            $userDB->roleId = $this->roleId;
-            $userDB->birthday = $this->birthday;
-            $userDB->avatar = $this->avatar;
-
+            $userDB->$id = $this->$id;
+            $userDB->$name = $this->$name;
+            $userDB->$surname = $this->$surname;
+            $userDB->$patronymic = $this->$patronymic;
+            $userDB->$email = $this->$email;
+            $userDB->$phone = $this->$phone;
+            $userDB->$password = $this->$password;
+            $userDB->$token = $this->$token;
+            $userDB->$personal_account = $this->$personal_account;
+            $userDB->$type_device = $this->$type_device;
+            $userDB->$number_device = $this->$number_device;
+            $userDB->$address = $this->$address;
+                    
             $id = \R::store($userDB);
 
             if($id == 0)
@@ -363,26 +355,6 @@
             {
                 throw new ExceptionAuthorization;
             }
-        }
-
-        public function checkPay(Tariff $tariff): bool
-        {
-            if(!$this->auth)
-            {
-                return false;
-            }
-
-            foreach($this->subscribes as $subscribe)
-            {
-                $tariffUser = $subscribe->getTariff();
-
-                if($tariff->getRoleId() == $tariffUser->getRoleId() && $tariff->getType() <= $tariffUser->getType())
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
 
         private function __clone()
