@@ -1,0 +1,23 @@
+extends ../layouts/base
+
+append vars
+    - title = 'История показаний';
+    - type = 'lk';
+block content
+    +b.history-data.section
+        +e.wrap.wrap
+            +e.title.text-l История показаний
+            +e.content
+                +e.TABLE.table.text-m
+                    tr
+                        th Дата
+                        th Показания
+                        th Расход
+                    tr
+                        td 01.12.2020
+                        td 300
+                        td 120
+                    tr
+                        td 01.11.2020
+                        td 180
+                        td 180

@@ -1,0 +1,68 @@
+.form {
+   &-group {
+      display: flex;
+      &_title {
+         width: 100%;
+      }
+      &_data {
+            display: flex;
+            align-items: center;
+            width: 100%;
+      }
+      &_radio {
+         width: 100%;
+         height: 100%;
+         &-btn {
+            // @extend .btn_sec;
+            width: 100%;
+            height: 100%;
+         }
+         &-input:checked + label {
+            // @extend .btn_main;
+         }
+      }
+      &_checkbox-btn-row {
+         display: flex;
+         width: 100%;
+         height: 100%;
+      }
+      &_checkbox-btn-wrap {
+         width: 100%;
+         height: 100%;
+      }
+      .checkbox-btn {
+         height: 100%;
+      }
+      .inp-checkbox-btn:checked + .checkbox-btn {
+         @extend .btn_main;
+      }
+      &__couple {
+         display: flex;
+         justify-content: space-between;
+         & > *  {
+            width: 47%;
+         }
+      }
+   }
+      
+
+}
+//    &--triple
+//       .form
+//          &-group
+//             margin-bottom: 40px
+//             &__couple
+//       .btn
+//          width: 260px
+//          height: 50px
+//          margin: 0 auto
+//    &--usual
+//          .form-group
+//             &:last-child
+//                margin-bottom: 0
+//             input
+//                background-color: $grey
+//          input, .btn
+//             width: 100%
+//             height: 50px
+//             padding: 15px

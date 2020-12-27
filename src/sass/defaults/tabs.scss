@@ -1,0 +1,35 @@
+.tab-panel {
+//    @extend .simple-text--reg
+   width: 100%;
+   &_title {
+      position: relative;
+      cursor: pointer;
+      &.active::after {
+         width: 100%;
+      }
+      &::after {
+         @extend %pseudo;
+         background: #8765d7;
+         position: absolute;
+         bottom: -8px;
+         width: 0;
+         height: 1px;
+         transition: .3s;
+      }
+      &:hover::after {
+         width: 100%;
+      }
+      &-last {
+         margin-bottom: 0;
+      }
+   }
+}
+.tab-panel--row {
+   display: flex;
+}
+.tab-content {
+   display: none;
+   &.active {
+      display: block;
+   }
+}

@@ -24,6 +24,7 @@
     }
     &__li {
         font-size: 2.4rem;
+        text-transform: uppercase;
         &:not(:last-child) {
             margin-right: 5rem;
         }

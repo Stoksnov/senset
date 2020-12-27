@@ -8,7 +8,11 @@ var defaults = {
 
 
 	init: () => {
-		$(".ham").on("click", defaults.toggleMenu);
+		// $(".ham").on("click", defaults.toggleMenu);
+
+		
+
+
 	},
 };
 

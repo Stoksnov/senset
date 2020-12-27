@@ -62,13 +62,18 @@ html(class=html.classList)&attributes(html.attrs)
 
 		main
 			block header
-				include header
+				if type == 'lk'
+					include header-auth
+				else
+					include header
 			block content
 			block footer 
 				include footer
 		block popup 
 			include modals
 
+		.modal-background(data-close="close")
+		
 		block scripts
 			script(src="http://code.jquery.com/jquery-3.3.1.min.js")
 			script(src="/js/app.js?v=" + Date.now())

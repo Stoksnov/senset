@@ -3,10 +3,18 @@
 	align-items: center;
     justify-content: center;
     border-radius: .8rem;
+    font-size: inherit;
     cursor: pointer;
     &_main {
         color: $white;
         background: $red;
         padding: 1rem 3.5rem;
     }
+   &_sec {
+        background-color: #f0f0f0;
+        color: #000;
+        &:hover {
+           background-color: #e6e6e6;
+        }
+   }
 }

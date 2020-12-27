@@ -1,0 +1,22 @@
+.history-data {
+    padding: 10rem 0;
+    &__title {
+        margin-bottom: 6rem;
+    }
+    &__table {
+        tr {
+            &:nth-child(even) {
+                background: $grey;
+            }
+        }
+        td, th {
+            padding: 1rem 3rem;
+        }
+        th {
+            border-bottom: 1px solid #000;
+        }
+        td {
+
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.transmit-data {
+    padding: 10rem 0;
+    &__title {
+        margin-bottom: 6rem;
+    }
+    &__content {
+        display: flex;
+    }
+    .card__input-text {
+        width: 30%;
+        text-align: right;
+    }
+}

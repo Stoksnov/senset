@@ -5,22 +5,17 @@
 				img(src="/app/img/logo.svg" alt="Логотип")
 			+e.right.flex._vertical
 				+e.connection.flex._column
-					+e.A.phone.h3(href="tel:8 (996) 925-98-97") 8 (996) 925-98-97
-					+e.callback.h5 Заказать обратный звонок
-				+e.log-in.h3.btn._main.flex._vertical Войти
-				//- +e.ham.ham
-				//- 	.ham__item
-				//- 	.ham__item
-				//- 	.ham__item
+					+e.name.h3 Иван Петров
+				+e.log-out.h3.btn._main.flex._vertical Выйти
 	+e.bottom.flex._vertical._justify
 		+e.UL.ul.flex
 			+e.LI.li
-				+e.A.li-link(href="#") Сведения об организации
+				+e.A.li-link(href="/transmit-data") ПЕРЕДАТЬ ПОКАЗАНИЯ
 			+e.LI.li
-				+e.A.li-link(href="#") Типы датчиков
+				+e.A.li-link(href="/history-data") ИСТОРИЯ ПОКАЗАНИЙ
 			+e.LI.li
-				+e.A.li-link(href="#") Контакты
-include ../modules/modals/log-in
+				+e.A.li-link(href="/settings") НАСТРОЙКИ
+
 
 
 

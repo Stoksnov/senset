@@ -1,3 +1,5 @@
+import { validator } from "./modules/validator";
+import { validation } from "./modules/validation";
 import { defaults } from "./modules/defaults";
 // import { aosAnimations } from "./modules/aos";
 // import { background } from "./modules/background";
@@ -12,6 +14,8 @@ import { config } from "./config";
 var App = () => {};
 
 App.prototype.init = () => {
+	validator.init();
+	validation.init();
 	defaults.init();
 	// aosAnimations.init();
 	// background.init();
@@ -20,7 +24,7 @@ App.prototype.init = () => {
 	// tabs.init();
 	// modals.init();
 	// accordion.init();
-	config.log("app init");
+	// config.log("app init");
 };
 
 export { App };

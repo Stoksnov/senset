@@ -1,0 +1,125 @@
+.modal-background {
+    display: none;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .5;
+    z-index: 20;
+}
+.modal {
+    display: none;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    max-height: 100vh;
+    overflow: auto;
+    padding: 40px 25px;
+    transform: translate(-50%, -50%);
+    z-index: 21;
+    &__head {
+        // @extend .title-h3;
+        width: 100%;
+        text-align: center;
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 50px;
+            font-weight: 300;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+    &__body {
+        padding-top: 35px;
+    }
+    .tab-panel {
+        // @extend .title-h3;
+        &--row {
+            justify-content: space-between;
+        }
+        &_title {
+            width: 265px;
+            text-align: center;
+        }
+    }
+    .form-group {
+        flex-direction: column;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        input {
+            background-color: $grey;
+            padding: 15px;
+        }
+        input, .btn {
+            width: 100%;
+            height: 50px;
+        }
+        &_checkbox-btn-row {
+            justify-content: space-between;
+            height: 50px;
+        }
+        &_checkbox-btn-wrap {
+            width: 22%;
+        }
+        .checkbox-btn {
+            background-color: $grey;
+        }
+        .bootstrap-select {
+            background-color: $grey;
+            position: static;
+            margin: 0;
+            & > .dropdown-toggle {
+                background-color: $grey;
+                position: relative;
+                .bs-caret {
+                    right: 20px;
+                }
+            }
+        }
+        &_data {
+            .selectpicker {
+                display: none;
+            }
+            &--row {
+                justify-content: space-between;
+                .form-group_btn, .form-group_radio, & > input, & > .bootstrap-select {
+                    width: 48%;
+                }
+            }
+            &--col {
+                flex-direction: column;
+                & > *:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+            &--selects {
+                position: relative;
+            }
+            .checkbox-icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        &_title:not(:last-child) {
+            margin-bottom: 25px;
+        }
+    }
+        
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        height: 50px;
+        margin-top: 40px;
+        .btn {
+            width: 48%;
+        }
+    }
+}
