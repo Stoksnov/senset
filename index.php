@@ -13,8 +13,6 @@
         }
     });
 
-    date_default_timezone_set(\Essences\Locator::getInstance()->getTimezone());
-
     $router = new \Router\Page\RouterPage;
 
     $router->start();

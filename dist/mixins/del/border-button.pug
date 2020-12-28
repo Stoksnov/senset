@@ -1,0 +1,15 @@
+mixin border-button(link = true)
+	if (link)
+		+e.A.border-btn.h5.border-button__(href='#')&attributes(attributes)
+			+e.SPAN.text
+				if block
+					block
+			+e.SPAN.arrow
+				+icon('arrowRight')
+	else
+		+e.BUTTON.border-btn.h5.border-button__()&attributes(attributes)
+			+e.SPAN.text
+				if block
+					block
+			+e.SPAN.arrow
+				+icon('arrowRight')

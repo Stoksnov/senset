@@ -9,8 +9,8 @@
 
         private const HOST = 'gate.iqsms.ru';
         private const PORT = 80;
-        private const LOGIN = 'z1589315814448';
-        private const PASSWORD = '549967';
+        private const LOGIN = 'z1609071935881';
+        private const PASSWORD = '253065';
 
         public function __construct()
         {
@@ -22,7 +22,7 @@
             $phone = $this->maskToIntegerPhone($receiver);
 
             $response = $this->send(self::HOST, self::PORT, self::LOGIN, self::PASSWORD,
-                $phone, $message, 'ZASELITE.RU', 'wap.zaselite.ru');
+                $phone, $message, '176.119.158.214', 'wap.176.119.158.214');
 
             $this->checkResponse($response);
             $response = explode('=', $response);

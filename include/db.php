@@ -1,9 +1,9 @@
 <?php
 
-    require_once 'lib/redbean/rb-mysql.php';
+    require_once 'lib/redbean/rb-postgres.php';
 
-    R::setup('mysql:host=91.210.168.146;dbname=crm',
-        'petrakov', '98vova98');
+    R::setup('pgsql:host=176.119.158.214/;dbname=crm',
+        'postgres', 'Qwe');
 
     R::ext('xdispense', function($type){
         return R::getRedBean()->dispense($type);

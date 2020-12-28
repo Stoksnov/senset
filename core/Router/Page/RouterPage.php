@@ -27,6 +27,7 @@
             }
             catch(ExceptionCustom $exception)
             {
+                // echo var_dump($exception);
                 self::redirect('/404');
             }
         }

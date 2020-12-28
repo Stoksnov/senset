@@ -21,24 +21,10 @@
 
         public function run(InterfaceView $view): void
         {
-            \R::begin();
-
-            try{
+            
                 $this->generateOutput();
-                \R::commit();
 
                 $view->out($this->paramsOutput);
-            }
-            catch(ExceptionCustom $exception)
-            {
-                \R::rollback();
-                throw $exception;
-            }
-            catch(\Exception $exception)
-            {
-                \R::rollback();
-                throw new ExceptionUpdateDB;
-            }
         }
 
         abstract protected function generateOutput(): void;

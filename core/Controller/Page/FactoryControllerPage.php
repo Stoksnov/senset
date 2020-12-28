@@ -17,38 +17,14 @@
                     return new ControllerMain($request);
                 case 'about':
                     return new ControllerAbout($request);
-                case 'assistant':
-                    return new ControllerAssistant($request);
-                case 'contacts':
-                    return new ControllerContacts($request);
-                case 'documents':
-                    return new ControllerDocuments($request);
-                case 'find':
-                    return new ControllerFind($request);
-                case 'how-it-work':
-                    return new ControllerHowItWork($request);
-                case 'object':
-                    return new ControllerObject($request);
                 case 'profile':
                     return new ControllerProfile($request);
-                case 'rent':
-                    return new ControllerRent($request);
-                case 'tariffs':
-                    return new ControllerTariffs($request);
-                case 'processing-data':
-                    return new ControllerProcessingData($request);
                 case 'terms-of-service':
                     return new ControllerTermsOfService($request);
+                case 'history-data':
+                    return new ControllerHistoryData($request);
                 case 'logout':
                     return new ControllerLogout($request);
-                case 'pay':
-                    return new ControllerPay($request);
-                case 'payerror':
-                    return new ControllerPayError($request);
-                case 'paysuccessful':
-                    return new ControllerPaySuccessful($request);
-                case 'paycheck':
-                    return new ControllerPayCheck($request);
                 case '403':
                     return new Controller403($request);
                 case '404':

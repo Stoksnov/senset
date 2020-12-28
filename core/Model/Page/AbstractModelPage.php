@@ -27,7 +27,6 @@
 
         final protected function generateGeneralOutput(): void
         {
-            $this->paramsOutput['locator'] = Locator::getInstance();
             $this->paramsOutput['user'] = User::getInstance();
             $this->paramsOutput['cookie'] = new RequestCookie;
         }

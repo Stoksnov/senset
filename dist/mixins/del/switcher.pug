@@ -1,0 +1,9 @@
+mixin switcher(name,  ...items)
+	+e.switcher.switcher__()&attributes(attributes)
+		- var count = 0;
+		each item in items
+			- var checked = count == 0;
+			+e.LABEL.item
+				+e.INPUT.input(type="radio" name=name checked=checked value=`${item}`) 
+				+e.SPAN.text.middle !{item}
+			- count++;

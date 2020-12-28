@@ -24,13 +24,13 @@
 
             $this->engine = new \Pug([
                 'cache' => $_SERVER['DOCUMENT_ROOT'] . '/core/View/CompilationCache',
-                'basedir' => $_SERVER['DOCUMENT_ROOT'] . '/dist',
+                'basedir' => $_SERVER['DOCUMENT_ROOT'] . '/src/pug/pages',
                 'upToDateCheck' => false
             ]);
         }
 
         public function render(string $template, array $data): string
         {
-            return $this->engine->render($_SERVER['DOCUMENT_ROOT'] . '/dist/' . $template, $data);
+            return $this->engine->render($_SERVER['DOCUMENT_ROOT'] . '/src/pug/pages/' . $template, $data);
         }
     }

@@ -2,12 +2,7 @@
 
     namespace Model\Page;
 
-    use Essences\DirectorObject\DirectorObjectList;
-    use Essences\ObjectEstate;
-    use Essences\User;
-    use Request\RequestCookie;
-
-    final class ModelMain extends AbstractModelPage
+    final class ModelHistoryData extends AbstractModelPage
     {
 
         public function __construct(array $data = [])
@@ -17,6 +12,6 @@
 
         protected function generateOutput(): void
         {
-        }
 
+        }
     }

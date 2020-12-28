@@ -8,7 +8,7 @@
     abstract class AbstractPage implements InterfaceView
     {
 
-        protected $template;
+        protected $template ;
         protected $title;
 
         protected function __construct(string $template, string $title)
