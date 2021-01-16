@@ -1,9 +1,0 @@
-mixin range(name, min, max, val = 1, step = 1)
-	+e.range.range__.js-range(data-min=min data-step=step data-val=val data-max=max)&attributes(attributes)
-		+e.INPUT.input.js-range-input(type="hidden" name=name)
-		+e.top.flex._justify._vertical
-			+e.count.h4 !{min}
-			+e.count.h4 !{max}
-		+e.field.js-range-field
-			+e.handle.ui-slider-handle.js-range-handle
-				+e.SPAN.handle-text.h4

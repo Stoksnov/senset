@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <title>Настройки</title>
+    <link rel="stylesheet" href="/app/css/app.css?v=1610810452732">
+    <script>
+        function canUseWebP(){var e=document.createElement("canvas");return!(!e.getContext||!e.getContext("2d"))&&0==e.toDataURL("image/webp").indexOf("data:image/webp")}var root=document.getElementsByTagName("html")[0];canUseWebP()?root.classList.add("ws"):root.classList.add("wn");
+    </script>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <div class="header__wrap wrap">
+                <div class="header__top flex flex_vertical flex_justify">
+                    <a class="header__logo logo" href="/">
+                        <img src="/app/img/logo.svg" alt="Логотип">
+                    </a>
+                    <div class="header__right flex flex_vertical">
+                        <div class="header__connection flex flex_column">
+                            <div class="header__name h3">Кирилл Мальцев</div>
+                        </div>
+                        <div class="header__log-out h3 btn btn_main flex flex_vertical">Выйти</div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__bottom flex flex_vertical flex_justify">
+                <ul class="header__ul flex">
+                    <li class="header__li"><a class="header__li-link" href="/transmit-data">ПЕРЕДАТЬ ПОКАЗАНИЯ</a>
+                    </li>
+                    <li class="header__li"><a class="header__li-link" href="/history-data">ИСТОРИЯ ПОКАЗАНИЙ</a>
+                    </li>
+                    <li class="header__li"><a class="header__li-link" href="/settings">НАСТРОЙКИ</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="settings section">
+            <div class="settings__wrap wrap">
+                <aside class="tab-panel"><a class="tab-panel_title active" href="#profile" data-tab-panel="profile">Профиль</a><a class="tab-panel_title" href="#contacts" data-tab-panel="contacts">Контакты</a><a class="tab-panel_title" href="#safe" data-tab-panel="safe">Безопасность</a>
+                </aside>
+                <main class="profile-content tab-all-content">
+                    <div class="tab-content tab-content--profile active" data-tab-content="profile">
+                        <form class="form profile-form">
+                            <div class="title-group title-group-first h3">Основная информация</div>
+                            <div class="form-group">
+                                <div class="form-group_title">Имя</div>
+                                <div class="form-group_data">
+                                    <input class="input-name not-active" type="text" value="Не указано" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group_title">Фамилия</div>
+                                <div class="form-group_data">
+                                    <input class="input-surname not-active" type="text" value="Не указано" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group_title">Отчество</div>
+                                <div class="form-group_data">
+                                    <input class="input-patronymic not-active" type="text" value="Не указано" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group_title">Адрес</div>
+                                <div class="form-group_data">
+                                    <input class="input-address not-active" type="text" value="Не указано" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group_title">Лицевой счет</div>
+                                <div class="form-group_data">
+                                    <input class="input-personal-acc not-active" type="text" value="Не указано" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group_title">Тип прибора</div>
+                                <div class="form-group_data">
+                                    <input class="input-type-device not-active" type="text" value="Не указано" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group_title">Серийный номер прибора</div>
+                                <div class="form-group_data">
+                                    <input class="input-number-device not-active" type="text" value="Не указано" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content tab-content--contacts" data-tab-content="contacts">
+                        <form class="form contacts-form">
+                            <div class="title-group h3">Контактная информация</div>
+                            <div class="form-group">
+                                <div class="form-group_title">Телефон</div>
+                                <div class="form-group_data">
+                                    <input class="input-phone not-active" type="tel" name="phone" value="" placeholder="Данные не введены" readonly>
+                                    <div class="edit-field">Изменить</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group_title">E-mail</div>
+                                <div class="form-group_data">
+                                    <input class="input-email not-active" type="email" name="email" value="" placeholder="Данные не введены" readonly>
+                                    <div class="edit-field">Изменить</div>
+                                </div>
+                            </div>
+                            <div class="form-group-down">
+                                <div class="form-group_data">
+                                    <button class="btn btn_main">Сохранить</button>
+                                    <div class="btn btn_sec btnCancel">Отменить</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content tab-content--safe" data-tab-content="safe">
+                        <div class="title-h2">Безопасность</div>
+                        <form class="form safe-form">
+                            <div class="title-group title-group-first h3">Настройки безопасности</div>
+                            <div class="form-group form-group">
+                                <div class="form-group_title">Старый пароль</div>
+                                <div class="form-group_data">
+                                    <input class="input-old-pass" type="password" name="passwordOld" placeholder="●●●●●●">
+                                </div>
+                            </div>
+                            <div class="form-group form-group">
+                                <div class="form-group_title">Новый пароль</div>
+                                <div class="form-group_data">
+                                    <input class="input-new-pass" type="password" name="password" placeholder="●●●●●●">
+                                </div>
+                            </div>
+                            <div class="title-group title-group--new-pass">* Длина пароля не менее 6 символов</div>
+                            <div class="form-group">
+                                <div class="form-group_title">Повторите пароль</div>
+                                <div class="form-group_data">
+                                    <input class="input-repeat-pass" type="password" name="password2" placeholder="●●●●●●">
+                                </div>
+                            </div>
+                            <div class="form-group-down">
+                                <div class="form-group_data">
+                                    <button class="btn btn_main">Сохранить</button>
+                                    <div class="btn btn_sec btnCancel">Отменить</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__wrap wrap">
+                <div class="footer__top flex flex_vertical">
+                    <a class="footer__logo logo" href="/">
+                        <img src="/app/img/logo-w.svg" alt="Логотип">
+                    </a>
+                    <div class="footer__top-right"><a class="footer__phone h3" href="tel:8 (996) 925-98-97">8 (996) 925-98-97</a>
+                        <a class="footer__email" href="mailto:info@senset.ru">
+                            <svg class="icon icon-mail" viewBox="0 0 28 18">
+                                <use xlink:href="/app/icons/sprite.svg#mail"></use>
+                            </svg>
+                            <div class="text link">info@senset.ru</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__middle flex flex_justify flex_vertical">
+                    <div class="footer__left">
+                        <div class="footer__address h3">г. Самара,
+                            <br>ул. Стара-загора, д. 79</div>
+                    </div>
+                    <div class="footer__right">
+                        <ul class="footer__ul flex h4">
+                            <li class="footer__li"><a class="footer__li-link" href="#">Главная</a>
+                            </li>
+                            <li class="footer__li"><a class="footer__li-link" href="#">Типы датчиков</a>
+                            </li>
+                            <li class="footer__li"><a class="footer__li-link" href="#">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">©2020 СенCeт <a class="link" href="#">Политика конфиденциальности</a>
+            </div>
+        </footer>
+    </main>
+    <div class="modal-background" data-close="close"></div>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/app/js/app.js?v=1610810452737"></script>
+</body>
+
+</html>

@@ -1,6 +1,0 @@
-mixin input (label, placeholder, name)
-	+e.field.input__()&attributes(attributes)
-		if(label)
-			+e.label.p !{label}
-		+e.parent
-			+e.INPUT.field(name=name placeholder=placeholder type="text")

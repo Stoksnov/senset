@@ -1,5 +1,5 @@
 .footer {
-    background: $dark;
+    background: linear-gradient(to top, #525254eb, #525254e8), url("/img/footer.jpg") center/cover no-repeat;
     color: $white;
     padding: 6.5rem 0 0;
     &__top {

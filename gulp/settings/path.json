@@ -1,7 +1,6 @@
 {
 	"build": {
 		"html": "dist/",
-		"pug": "dist/",
 		"js": "dist/app/js/",
 		"css": "dist/app/css/",
 		"img": "dist/app/img/",
@@ -11,8 +10,7 @@
 		"json": "dist/app/json/"
 	},
 	"src": {
-		"html": "src/pug/**/*.pug",
-		"pug": "src/pug/**/*.pug",
+		"html": "src/pug/pages/**/*.pug",
 		"js": "src/js/app.js",
 		"css": "src/sass/app.scss",
 		"json": ["src/json/**/.*", "src/json/**/*.*"],
@@ -23,7 +21,6 @@
 	},
 	"watch": {
 		"html": "src/pug/**/*.pug",
-		"pug": "src/pug/**/*.pug",
 		"js": "src/js/**/*.js",
 		"css": "src/sass/**/*.scss",
 		"img": "src/img/**/*.*",
